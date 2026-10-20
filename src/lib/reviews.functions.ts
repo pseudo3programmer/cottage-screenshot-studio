@@ -2,17 +2,21 @@ import { createServerFn } from "@tanstack/react-start";
 
 export type GoogleReview = {
   author: string;
-  authorUrl?: string;
-  photo?: string;
+  authorUrl: string | undefined;
+  photo: string | undefined;
   rating: number;
   text: string;
-  relativeTime?: string;
+  relativeTime: string | undefined;
 };
 
-export type ReviewsResult =
-  | { status: "ok"; rating?: number; total?: number; reviews: GoogleReview[]; mapsUrl?: string }
-  | { status: "not_configured" }
-  | { status: "error"; message: string };
+export type ReviewsResult = {
+  status: "ok" | "not_configured" | "error";
+  rating: number | null;
+  total: number | null;
+  reviews: GoogleReview[];
+  mapsUrl: string | null;
+};
+const empty = (status: ReviewsResult["status"]): ReviewsResult => ({ status, rating: null, total: null, reviews: [], mapsUrl: null });
 
 let cache: { at: number; data: ReviewsResult } | null = null;
 const TTL = 60 * 60 * 1000;
@@ -20,7 +24,7 @@ const TTL = 60 * 60 * 1000;
 export const getGoogleReviews = createServerFn({ method: "GET" }).handler(async (): Promise<ReviewsResult> => {
   const key = process.env["GOOGLE_PLACES_API_KEY"];
   const placeId = process.env["GOOGLE_PLACE_ID"];
-  if (!key || !placeId) return { status: "not_configured" };
+  if (!key || !placeId) return empty("not_configured");
   if (cache && Date.now() - cache.at < TTL) return cache.data;
   try {
     const res = await fetch(`https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`, {
@@ -31,7 +35,7 @@ export const getGoogleReviews = createServerFn({ method: "GET" }).handler(async 
     });
     if (!res.ok) {
       console.error("Places error", res.status, await res.text());
-      return { status: "error", message: `Google returned ${res.status}` };
+      return empty("error");
     }
     const j = (await res.json()) as {
       rating?: number;
@@ -47,9 +51,9 @@ export const getGoogleReviews = createServerFn({ method: "GET" }).handler(async 
     };
     const data: ReviewsResult = {
       status: "ok",
-      rating: j.rating,
-      total: j.userRatingCount,
-      mapsUrl: j.googleMapsUri,
+      rating: j.rating ?? null,
+      total: j.userRatingCount ?? null,
+      mapsUrl: j.googleMapsUri ?? null,
       reviews: (j.reviews ?? []).slice(0, 5).map((r) => ({
         author: r.authorAttribution?.displayName ?? "Google user",
         authorUrl: r.authorAttribution?.uri,
@@ -63,6 +67,6 @@ export const getGoogleReviews = createServerFn({ method: "GET" }).handler(async 
     return data;
   } catch (e) {
     console.error(e);
-    return { status: "error", message: "Could not reach Google" };
+    return empty("error");
   }
 });
