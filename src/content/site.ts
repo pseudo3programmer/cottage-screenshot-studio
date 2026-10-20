@@ -44,9 +44,10 @@ export const site = {
 
   contact: {
     whatsapp: "", // [PLACEHOLDER] international format, digits only, e.g. 919876543210
-    phone: "", // [PLACEHOLDER] e.g. +919876543210
+    phone: "", // [PLACEHOLDER] e.g. +91 98765 43210 — shown as a "Call" button once added
     email: "", // optional
-    instagram: "", // [PLACEHOLDER] full profile URL
+    instagram: "", // [PLACEHOLDER] e.g. https://instagram.com/yourcottage, or just @yourcottage
+
     whatsappMessage:
       "Hello! I am interested in staying at your cottage in Matheran. Could you please share the room availability and details?",
   },
