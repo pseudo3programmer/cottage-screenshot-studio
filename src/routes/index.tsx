@@ -97,7 +97,7 @@ function Index() {
       <main id="top">
         <section className="relative">
           <div className="relative h-[82vh] min-h-[520px] overflow-hidden">
-            {site.heroImage ? <img src={site.heroImage} alt={`${site.name} in Matheran`} className="h-full w-full object-cover" fetchPriority="high" /> : <PhotoPlaceholder label="Your cottage photo here" className="h-full w-full" />}
+            {site.heroImage ? <img src={site.heroImage} alt={`${site.name} in Matheran`} className="h-full w-full object-cover" fetchPriority="high" /> : <PhotoPlaceholder label="Your cottage photo here" className="h-full w-full !items-start pt-20" />}
             <div className="absolute inset-0 bg-hero-overlay" />
             <div className="absolute inset-x-0 bottom-0 px-5 pb-12">
               <div className="fade-up mx-auto max-w-5xl text-primary-foreground">
