@@ -117,7 +117,7 @@ function Index() {
           <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">{site.about.map((p, i) => <p key={i}>{p}</p>)}</div>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2">
             {site.highlights.map((h, i) => {
-              const Icon = highlightIcons[i % highlightIcons.length];
+              const Icon = highlightIcons[i % highlightIcons.length] ?? Leaf;
               return (
                 <li key={h.title} className="flex gap-4 rounded-2xl bg-card p-5 shadow-soft">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"><Icon className="h-5 w-5" /></span>
