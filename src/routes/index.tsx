@@ -59,7 +59,7 @@ function Section({ id, eyebrow, heading, children, className = "" }: { id: strin
   return (
     <section id={id} className={`px-5 py-16 sm:py-24 ${className}`}>
       <div className="mx-auto max-w-5xl">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{eyebrow}</p>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">{eyebrow}</p>
         <h2 className="mt-2 text-4xl font-semibold sm:text-5xl">{heading}</h2>
         <div className="mt-8">{children}</div>
       </div>
@@ -101,7 +101,7 @@ function Index() {
             <div className="absolute inset-0 bg-hero-overlay" />
             <div className="absolute inset-x-0 bottom-0 px-5 pb-12">
               <div className="fade-up mx-auto max-w-5xl text-primary-foreground">
-                <p className="text-xs font-bold uppercase tracking-[0.25em]">{site.tagline}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent">{site.tagline}</p>
                 <h1 className="mt-3 max-w-2xl text-5xl font-semibold leading-[1.05] sm:text-7xl">{site.heroHeadline}</h1>
                 <p className="mt-4 max-w-xl text-base opacity-90 sm:text-lg">{site.heroText}</p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -120,7 +120,7 @@ function Index() {
               const Icon = highlightIcons[i % highlightIcons.length] ?? Leaf;
               return (
                 <li key={h.title} className="flex gap-4 rounded-2xl bg-card p-5 shadow-soft">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary text-primary"><Icon className="h-5 w-5" /></span>
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><Icon className="h-5 w-5" /></span>
                   <div><h3 className="text-xl font-semibold">{h.title}</h3><p className="mt-1 text-sm text-muted-foreground">{h.text}</p></div>
                 </li>
               );
@@ -128,7 +128,7 @@ function Index() {
           </ul>
         </Section>
 
-        <Section id="rooms" eyebrow="Rooms & photos" heading="Where you'll stay" className="bg-secondary/50">
+        <Section id="rooms" eyebrow="Rooms & photos" heading="Where you'll stay" className="bg-secondary/60">
           <div className="grid gap-8 md:grid-cols-2">
             {site.rooms.map((room) => {
               const details = roomDetails(room);
@@ -157,7 +157,7 @@ function Index() {
 
         <Section id="reviews" eyebrow="Guest reviews" heading="Kind words from guests"><Reviews /></Section>
 
-        <Section id="location" eyebrow="Location" heading="Find us in Matheran" className="bg-secondary/50">
+        <Section id="location" eyebrow="Location" heading="Find us in Matheran" className="bg-secondary/60">
           <div className="overflow-hidden rounded-2xl shadow-soft">
             {embed ? <iframe title="Cottage location on Google Maps" src={embed} className="h-80 w-full border-0 sm:h-96" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /> : <PhotoPlaceholder label="Map appears once the address is added" className="h-80 w-full" />}
           </div>

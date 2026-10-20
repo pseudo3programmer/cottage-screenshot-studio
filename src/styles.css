@@ -62,8 +62,8 @@
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-foreground: var(--whatsapp-foreground);
   --color-forest-deep: var(--forest-deep);
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Karla", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
   --shadow-soft: var(--shadow-soft);
 }
 
