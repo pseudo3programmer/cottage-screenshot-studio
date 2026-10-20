@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, MapPin, Phone, Mail, Instagram, MessageCircle, Leaf, Sofa, Mountain, Users } from "lucide-react";
 import { site } from "@/content/site";
-import { roomDetails, whatsappLink } from "@/lib/contact";
+import { instagramLink, phoneLink, roomDetails, whatsappLink } from "@/lib/contact";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Gallery, PhotoPlaceholder } from "@/components/cottage/Gallery";
@@ -55,6 +55,15 @@ function WhatsAppButton({ children = "Enquire on WhatsApp", msg, className = "" 
   );
 }
 
+/** Shown in place of a contact button whose detail has not been added yet. */
+function ComingSoon({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span className={`inline-flex h-12 items-center justify-center gap-2 rounded-full border border-dashed border-border px-6 text-sm text-muted-foreground/70 ${className}`}>
+      {children}
+    </span>
+  );
+}
+
 function Section({ id, eyebrow, heading, children, className = "" }: { id: string; eyebrow: string; heading: string; children: React.ReactNode; className?: string }) {
   return (
     <section id={id} className={`px-5 py-16 sm:py-24 ${className}`}>
@@ -72,14 +81,17 @@ function Index() {
   const { contact, location } = site;
   const directions = location.mapsUrl || (location.address ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}` : "");
   const embed = location.embedQuery ? `https://www.google.com/maps?q=${encodeURIComponent(location.embedQuery)}&output=embed` : "";
+  const call = phoneLink(contact.phone);
+  const insta = instagramLink(contact.instagram);
 
   return (
     <div className="min-h-screen pb-20 md:pb-0">
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
           <a href="#top" className="flex items-center gap-2"><Logo /><span className="font-display text-xl font-semibold">{site.name}</span></a>
-          <nav className="hidden gap-6 md:flex" aria-label="Main">
+          <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
             {nav.map((n) => <a key={n.href} href={n.href} className="text-sm hover:text-primary">{n.label}</a>)}
+            {insta && <a href={insta} {...ext} aria-label="Instagram profile" className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:bg-secondary"><Instagram className="h-5 w-5" /></a>}
           </nav>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild><Button variant="ghost" size="icon" className="h-11 w-11 md:hidden" aria-label="Open menu"><Menu /></Button></SheetTrigger>
@@ -88,7 +100,10 @@ function Index() {
               <nav className="mt-6 flex flex-col" aria-label="Mobile">
                 {nav.map((n) => <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="border-b border-border py-4 text-lg">{n.label}</a>)}
               </nav>
-              <WhatsAppButton className="mt-6 w-full" />
+              <div className="mt-6 flex gap-3">
+                <WhatsAppButton className="flex-1" />
+                {call && <Button asChild size="lg" variant="outline" className="h-12 w-14 shrink-0 rounded-full px-0" aria-label="Call us"><a href={call}><Phone className="h-5 w-5" /></a></Button>}
+              </div>
             </SheetContent>
           </Sheet>
         </div>
@@ -172,19 +187,32 @@ function Index() {
           <p className="max-w-xl text-lg text-muted-foreground">The quickest way to check availability is a message on WhatsApp. We'll reply as soon as we can.</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             <WhatsAppButton className="w-full">Chat on WhatsApp</WhatsAppButton>
-            {contact.phone && <Button asChild size="lg" variant="outline" className="h-12 rounded-full"><a href={`tel:${contact.phone}`}><Phone className="h-5 w-5" />Call us</a></Button>}
-            {contact.instagram && <Button asChild size="lg" variant="outline" className="h-12 rounded-full"><a href={contact.instagram} {...ext}><Instagram className="h-5 w-5" />Instagram</a></Button>}
+            {call ? (
+              <Button asChild size="lg" variant="outline" className="h-12 rounded-full">
+                <a href={call}><Phone className="h-5 w-5" />{contact.phone}</a>
+              </Button>
+            ) : (
+              <ComingSoon className="w-full"><Phone className="h-5 w-5" />Phone number coming soon</ComingSoon>
+            )}
+            {insta ? (
+              <Button asChild size="lg" variant="outline" className="h-12 rounded-full">
+                <a href={insta} {...ext}><Instagram className="h-5 w-5" />Follow us on Instagram</a>
+              </Button>
+            ) : (
+              <ComingSoon className="w-full"><Instagram className="h-5 w-5" />Instagram coming soon</ComingSoon>
+            )}
             {contact.email && <Button asChild size="lg" variant="outline" className="h-12 rounded-full"><a href={`mailto:${contact.email}`}><Mail className="h-5 w-5" />Email</a></Button>}
           </div>
         </Section>
       </main>
 
-      <footer className="bg-forest-deep px-5 py-12 text-primary-foreground">
+      <footer className="bg-forest-deep px-5 pt-12 pb-28 text-primary-foreground md:pb-12">
         <div className="mx-auto flex max-w-5xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3"><Logo /><div><p className="font-display text-xl">{site.name}</p><p className="text-sm opacity-75">Matheran, Maharashtra</p></div></div>
-          <div className="flex flex-wrap gap-5 text-sm">
-            {contact.instagram && <a href={contact.instagram} {...ext} className="hover:underline">Instagram</a>}
+          <div className="flex flex-wrap items-center gap-5 text-sm">
+            {insta ? <a href={insta} {...ext} className="hover:underline">Instagram</a> : <span className="opacity-60">Instagram coming soon</span>}
             <a href={wa()} {...ext} className="hover:underline">WhatsApp</a>
+            {call ? <a href={call} className="hover:underline">{contact.phone}</a> : <span className="opacity-60">Phone coming soon</span>}
             {location.mapsUrl && <a href={location.mapsUrl} {...ext} className="hover:underline">Google Maps</a>}
           </div>
         </div>
@@ -192,7 +220,14 @@ function Index() {
       </footer>
 
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
-        <WhatsAppButton className="w-full" />
+        {call ? (
+          <div className="flex gap-3">
+            <WhatsAppButton className="w-full flex-1" />
+            <Button asChild size="lg" variant="outline" className="h-12 w-14 shrink-0 rounded-full px-0" aria-label="Call us"><a href={call}><Phone className="h-5 w-5" /></a></Button>
+          </div>
+        ) : (
+          <WhatsAppButton className="w-full" />
+        )}
       </div>
     </div>
   );
