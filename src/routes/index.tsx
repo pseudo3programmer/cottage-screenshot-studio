@@ -206,7 +206,7 @@ function Index() {
         </Section>
       </main>
 
-      <footer className="bg-forest-deep px-5 py-12 text-primary-foreground">
+      <footer className="bg-forest-deep px-5 pt-12 pb-28 text-primary-foreground md:pb-12">
         <div className="mx-auto flex max-w-5xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3"><Logo /><div><p className="font-display text-xl">{site.name}</p><p className="text-sm opacity-75">Matheran, Maharashtra</p></div></div>
           <div className="flex flex-wrap items-center gap-5 text-sm">
