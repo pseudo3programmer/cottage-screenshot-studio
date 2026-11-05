@@ -11,6 +11,14 @@ import coupleRoom2 from "@/assets/couple-room-2.png.asset.json";
 import coupleRoom3 from "@/assets/couple-room-3.png.asset.json";
 import coupleRoom4 from "@/assets/couple-room-4.png.asset.json";
 import coupleRoom5 from "@/assets/couple-room-5.png.asset.json";
+import deluxeRoom1 from "@/assets/deluxe-family-room-1.png.asset.json";
+import deluxeRoom2 from "@/assets/deluxe-family-room-2.png.asset.json";
+import deluxeRoom3 from "@/assets/deluxe-family-room-3.png.asset.json";
+import deluxeRoom4 from "@/assets/deluxe-family-room-4.png.asset.json";
+import deluxeRoom5 from "@/assets/deluxe-family-room-5.png.asset.json";
+import deluxeRoom6 from "@/assets/deluxe-family-room-6.png.asset.json";
+import deluxeRoom7 from "@/assets/deluxe-family-room-7.png.asset.json";
+import deluxeRoom8 from "@/assets/deluxe-family-room-8.png.asset.json";
 
 export type RoomImage = { src: string; alt: string };
 
