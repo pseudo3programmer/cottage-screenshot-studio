@@ -14,6 +14,9 @@ export type Room = {
   occupancy?: string;
   beds?: string;
   price?: string;
+  /** Rupees per night used for online booking. Leave 0 to turn online booking off for this room. */
+  pricePerNight?: number;
+  maxGuests?: number;
 };
 
 export type ManualReview = {
@@ -68,8 +71,18 @@ export const site = {
       occupancy: "",
       beds: "",
       price: "",
+      pricePerNight: 0, // [PLACEHOLDER] e.g. 3500 — online booking for this room starts once set
+      maxGuests: 2, // [PLACEHOLDER]
     },
   ] as Room[],
+
+  booking: {
+    /** % of the total paid online when booking (100 = full payment, 30 = 30% advance). */
+    advancePercent: 100, // [PLACEHOLDER]
+    checkInTime: "", // [PLACEHOLDER] e.g. 12:00 PM
+    checkOutTime: "", // [PLACEHOLDER] e.g. 10:00 AM
+    cancellationPolicy: "", // [PLACEHOLDER] shown before payment once added
+  },
 
   // Approved reviews copied manually. These are NOT synced automatically with Google.
   manualReviews: [] as ManualReview[],

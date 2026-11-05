@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Gallery, PhotoPlaceholder } from "@/components/cottage/Gallery";
 import { Reviews } from "@/components/cottage/Reviews";
+import { Booking } from "@/components/cottage/Booking";
 
 const title = `${site.name} — Peaceful Cottage in Matheran`;
 const description = "A cozy cottage in Matheran, Maharashtra. Explore our rooms, read guest reviews and enquire on WhatsApp.";
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/")({
 const nav = [
   { href: "#about", label: "About" },
   { href: "#rooms", label: "Rooms & Photos" },
+  { href: "#book", label: "Book" },
   { href: "#reviews", label: "Reviews" },
   { href: "#location", label: "Location" },
   { href: "#contact", label: "Contact" },
@@ -169,6 +171,8 @@ function Index() {
           </div>
           <div className="mt-10 text-center"><WhatsAppButton>Ask About Availability</WhatsAppButton></div>
         </Section>
+
+        <Section id="book" eyebrow="Book your stay" heading="Check dates & book"><Booking /></Section>
 
         <Section id="reviews" eyebrow="Guest reviews" heading="Kind words from guests"><Reviews /></Section>
 
