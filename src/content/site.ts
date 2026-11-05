@@ -5,7 +5,7 @@
  */
 
 import cottageLogo from "@/assets/kaushik-cottage-logo.png.asset.json";
-import matheranHero from "@/assets/matheran-hero-clean.png.asset.json";
+import matheranHero from "@/assets/matheran-hero-monsoon.png.asset.json";
 
 export type RoomImage = { src: string; alt: string };
 
