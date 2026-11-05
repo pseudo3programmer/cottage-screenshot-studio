@@ -7,7 +7,7 @@ import { site } from "@/content/site";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/booking-status")({
-  validateSearch: (s: Record<string, unknown>) => ({ order_id: typeof s.order_id === "string" ? s.order_id : "" }),
+  validateSearch: (s: Record<string, unknown>) => ({ order_id: typeof s["order_id"] === "string" ? s["order_id"] : "" }),
   head: () => ({
     meta: [
       { title: `Booking status — ${site.name}` },
