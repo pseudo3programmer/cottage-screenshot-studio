@@ -110,7 +110,16 @@ export const site = {
     {
       name: "Deluxe Family Room",
       description: "[PLACEHOLDER] A short description of the Deluxe Family Room.",
-      images: [],
+      images: [
+        { src: deluxeRoom1.url, alt: "Deluxe Family Room — two beds with AC and balcony view" },
+        { src: deluxeRoom2.url, alt: "Deluxe Family Room — beds, TV and attached washroom" },
+        { src: deluxeRoom3.url, alt: "Deluxe Family Room — beds with balcony and valley view" },
+        { src: deluxeRoom4.url, alt: "Deluxe Family Room — beds, AC and TV" },
+        { src: deluxeRoom5.url, alt: "Deluxe Family Room — three beds with seating chairs" },
+        { src: deluxeRoom6.url, alt: "Deluxe Family Room — three beds with table and chairs" },
+        { src: deluxeRoom7.url, alt: "Deluxe Family Room — three beds, TV and mirror" },
+        { src: deluxeRoom8.url, alt: "Deluxe Family Room — three beds opening to the balcony" },
+      ], // order here = order shown
       facilities: ["Air-conditioned"],
       occupancy: "",
       beds: "",
