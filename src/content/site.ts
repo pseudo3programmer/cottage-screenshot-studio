@@ -62,8 +62,8 @@ export const site = {
   ],
 
   contact: {
-    whatsapp: "", // [PLACEHOLDER] international format, digits only, e.g. 919876543210
-    phone: "", // [PLACEHOLDER] e.g. +91 98765 43210 — shown as a "Call" button once added
+    whatsapp: "918806432531",
+    phone: "+91 88064 32531",
     email: "", // optional
     instagram: "", // [PLACEHOLDER] e.g. https://instagram.com/yourcottage, or just @yourcottage
 
