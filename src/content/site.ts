@@ -72,10 +72,12 @@ export const site = {
   },
 
   location: {
-    address: "", // [PLACEHOLDER] full address
-    mapsUrl: "", // [PLACEHOLDER] Google Maps listing link
-    embedQuery: "", // [PLACEHOLDER] exact cottage name + address used to centre the map
-    writeReviewUrl: "", // [PLACEHOLDER] Google "write a review" link
+    address: "Aman Lodge, Indira Gandhi Nagar, Matheran, Maharashtra 410102, India",
+    mapsUrl: "https://maps.app.goo.gl/b6gDtkt2EH7nmiWG6",
+    embedQuery: "Kaushik Cottage Matheran, Aman Lodge, Indira Gandhi Nagar, Matheran 410102",
+    /** Google listing ID — used to load live Google reviews. */
+    googlePlaceId: "ChIJn28RRhPv5zsRtLOLZbfe8Pw",
+    writeReviewUrl: "https://search.google.com/local/writereview?placeid=ChIJn28RRhPv5zsRtLOLZbfe8Pw",
   },
 
   rooms: [

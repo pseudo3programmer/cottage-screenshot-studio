@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { site } from "@/content/site";
 
 export type GoogleReview = {
   author: string;
@@ -22,14 +23,16 @@ let cache: { at: number; data: ReviewsResult } | null = null;
 const TTL = 60 * 60 * 1000;
 
 export const getGoogleReviews = createServerFn({ method: "GET" }).handler(async (): Promise<ReviewsResult> => {
-  const key = process.env["GOOGLE_PLACES_API_KEY"];
-  const placeId = process.env["GOOGLE_PLACE_ID"];
-  if (!key || !placeId) return empty("not_configured");
+  const lovableKey = process.env["LOVABLE_API_KEY"];
+  const key = process.env["GOOGLE_MAPS_API_KEY"];
+  const placeId = site.location.googlePlaceId;
+  if (!lovableKey || !key || !placeId) return empty("not_configured");
   if (cache && Date.now() - cache.at < TTL) return cache.data;
   try {
-    const res = await fetch(`https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`, {
+    const res = await fetch(`https://connector-gateway.lovable.dev/google_maps/places/v1/places/${encodeURIComponent(placeId)}`, {
       headers: {
-        "X-Goog-Api-Key": key,
+        Authorization: `Bearer ${lovableKey}`,
+        "X-Connection-Api-Key": key,
         "X-Goog-FieldMask": "rating,userRatingCount,reviews,googleMapsUri",
       },
     });
