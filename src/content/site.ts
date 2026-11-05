@@ -5,6 +5,7 @@
  */
 
 import cottageLogo from "@/assets/kaushik-cottage-logo.png.asset.json";
+import matheranHero from "@/assets/matheran-hero.png.asset.json";
 
 export type RoomImage = { src: string; alt: string };
 
@@ -32,7 +33,7 @@ export const site = {
   name: "Kaushik Cottage",
   logoSrc: cottageLogo.url,
   tagline: "A cottage in Matheran",
-  heroImage: "", // [PLACEHOLDER] main cottage photo
+  heroImage: matheranHero.url, // Scenic Matheran collage — replace with your own main cottage photo when you have one
   heroHeadline: "Your Peaceful Getaway in Matheran",
   heroText:
     "Wake up to mist over the hills, birdsong in the trees and slow days in Maharashtra's car-free hill station.",
