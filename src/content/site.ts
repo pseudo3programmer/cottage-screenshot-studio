@@ -6,6 +6,11 @@
 
 import cottageLogo from "@/assets/kaushik-cottage-logo.png.asset.json";
 import matheranHero from "@/assets/matheran-hero-monsoon.png.asset.json";
+import coupleRoom1 from "@/assets/couple-room-1.png.asset.json";
+import coupleRoom2 from "@/assets/couple-room-2.png.asset.json";
+import coupleRoom3 from "@/assets/couple-room-3.png.asset.json";
+import coupleRoom4 from "@/assets/couple-room-4.png.asset.json";
+import coupleRoom5 from "@/assets/couple-room-5.png.asset.json";
 
 export type RoomImage = { src: string; alt: string };
 
@@ -80,7 +85,13 @@ export const site = {
     {
       name: "Standard Couple Room",
       description: "[PLACEHOLDER] A short description of the Standard Couple Room.",
-      images: [],
+      images: [
+        { src: coupleRoom1.url, alt: "Standard Couple Room — bed with TV and seating" },
+        { src: coupleRoom2.url, alt: "Standard Couple Room — bed, wardrobe and table" },
+        { src: coupleRoom3.url, alt: "Standard Couple Room — bed with yellow curtains" },
+        { src: coupleRoom4.url, alt: "Standard Couple Room — bed, mirror and TV" },
+        { src: coupleRoom5.url, alt: "Standard Couple Room — bed, dresser and table" },
+      ], // order here = order shown
       facilities: ["Air-conditioned"],
       occupancy: "",
       beds: "",
