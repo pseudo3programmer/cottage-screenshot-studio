@@ -11,6 +11,14 @@ import coupleRoom2 from "@/assets/couple-room-2.png.asset.json";
 import coupleRoom3 from "@/assets/couple-room-3.png.asset.json";
 import coupleRoom4 from "@/assets/couple-room-4.png.asset.json";
 import coupleRoom5 from "@/assets/couple-room-5.png.asset.json";
+import deluxeRoom1 from "@/assets/deluxe-family-room-1.png.asset.json";
+import deluxeRoom2 from "@/assets/deluxe-family-room-2.png.asset.json";
+import deluxeRoom3 from "@/assets/deluxe-family-room-3.png.asset.json";
+import deluxeRoom4 from "@/assets/deluxe-family-room-4.png.asset.json";
+import deluxeRoom5 from "@/assets/deluxe-family-room-5.png.asset.json";
+import deluxeRoom6 from "@/assets/deluxe-family-room-6.png.asset.json";
+import deluxeRoom7 from "@/assets/deluxe-family-room-7.png.asset.json";
+import deluxeRoom8 from "@/assets/deluxe-family-room-8.png.asset.json";
 
 export type RoomImage = { src: string; alt: string };
 
@@ -102,7 +110,16 @@ export const site = {
     {
       name: "Deluxe Family Room",
       description: "[PLACEHOLDER] A short description of the Deluxe Family Room.",
-      images: [],
+      images: [
+        { src: deluxeRoom1.url, alt: "Deluxe Family Room — two beds with AC and balcony view" },
+        { src: deluxeRoom2.url, alt: "Deluxe Family Room — beds, TV and attached washroom" },
+        { src: deluxeRoom3.url, alt: "Deluxe Family Room — beds with balcony and valley view" },
+        { src: deluxeRoom4.url, alt: "Deluxe Family Room — beds, AC and TV" },
+        { src: deluxeRoom5.url, alt: "Deluxe Family Room — three beds with seating chairs" },
+        { src: deluxeRoom6.url, alt: "Deluxe Family Room — three beds with table and chairs" },
+        { src: deluxeRoom7.url, alt: "Deluxe Family Room — three beds, TV and mirror" },
+        { src: deluxeRoom8.url, alt: "Deluxe Family Room — three beds opening to the balcony" },
+      ], // order here = order shown
       facilities: ["Air-conditioned"],
       occupancy: "",
       beds: "",
