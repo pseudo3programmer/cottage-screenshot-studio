@@ -4,6 +4,8 @@
  * Items marked [PLACEHOLDER] must be replaced with your real details.
  */
 
+import cottageLogo from "@/assets/kaushik-cottage-logo.png.asset.json";
+
 export type RoomImage = { src: string; alt: string };
 
 export type Room = {
@@ -27,8 +29,8 @@ export type ManualReview = {
 };
 
 export const site = {
-  name: "Your Cottage Name", // [PLACEHOLDER]
-  logoSrc: "", // [PLACEHOLDER] logo image URL; empty shows a text mark
+  name: "Kaushik Cottage",
+  logoSrc: cottageLogo.url,
   tagline: "A cottage in Matheran",
   heroImage: "", // [PLACEHOLDER] main cottage photo
   heroHeadline: "Your Peaceful Getaway in Matheran",
