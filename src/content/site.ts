@@ -66,15 +66,37 @@ export const site = {
 
   rooms: [
     {
-      name: "Room name", // [PLACEHOLDER]
-      description: "[PLACEHOLDER] A short description of this room.",
+      name: "Budget Room",
+      description: "[PLACEHOLDER] A short description of the Budget Room.",
       images: [],
-      facilities: [],
+      facilities: ["Non-AC"],
+      occupancy: "",
+      beds: "",
+      price: "",
+      pricePerNight: 0, // [PLACEHOLDER] e.g. 1500 — online booking for this room starts once set
+      maxGuests: 2, // [PLACEHOLDER]
+    },
+    {
+      name: "Standard Couple Room",
+      description: "[PLACEHOLDER] A short description of the Standard Couple Room.",
+      images: [],
+      facilities: ["Air-conditioned"],
+      occupancy: "",
+      beds: "",
+      price: "",
+      pricePerNight: 0, // [PLACEHOLDER] e.g. 2500 — online booking for this room starts once set
+      maxGuests: 2, // [PLACEHOLDER]
+    },
+    {
+      name: "Deluxe Family Room",
+      description: "[PLACEHOLDER] A short description of the Deluxe Family Room.",
+      images: [],
+      facilities: ["Air-conditioned"],
       occupancy: "",
       beds: "",
       price: "",
       pricePerNight: 0, // [PLACEHOLDER] e.g. 3500 — online booking for this room starts once set
-      maxGuests: 2, // [PLACEHOLDER]
+      maxGuests: 4, // [PLACEHOLDER]
     },
   ] as Room[],
 
