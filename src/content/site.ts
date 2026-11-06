@@ -51,14 +51,14 @@ export const site = {
   heroText:
     "Wake up to mist over the hills, birdsong in the trees and slow days in Maharashtra's car-free hill station.",
   about: [
-    "[PLACEHOLDER] Tell guests about your cottage — its story, its atmosphere and what makes a stay here feel special.",
-    "[PLACEHOLDER] Describe your hospitality, home-cooked food (if offered) and the experience of staying in Matheran.",
+    "Tucked near Aman Lodge in the quiet green stretches of Matheran, Kaushik Cottage is a peaceful hill-station retreat away from the crowds — tall trees, cool mountain air and Asia's only automobile-free hill station all around you.",
+    "Expect warm local hospitality, clean and comfortable rooms, and friendly help planning your walks to Matheran's viewpoints, lakes and heritage spots.",
   ],
   highlights: [
-    { title: "Natural surroundings", text: "[PLACEHOLDER] Describe the trees, views and quiet around the cottage." },
-    { title: "Comfort & amenities", text: "[PLACEHOLDER] List the comforts you actually offer." },
-    { title: "Nearby attractions", text: "[PLACEHOLDER] Name the viewpoints or spots close by." },
-    { title: "Who it suits", text: "[PLACEHOLDER] Families, couples or groups — only what you confirm." },
+    { title: "Natural surroundings", text: "Leafy forest all around, birdsong in the mornings and Matheran's red-earth trails right outside the door." },
+    { title: "Comfort & amenities", text: "Clean rooms with AC and non-AC options, attached washrooms, fresh linen and TV in the AC rooms." },
+    { title: "Nearby attractions", text: "Close to Aman Lodge station, with easy access to Charlotte Lake, Louisa Point and the heritage toy train." },
+    { title: "Who it suits", text: "Couples looking for a quiet weekend and families wanting roomy, relaxed stays." },
   ],
 
   contact: {
@@ -83,18 +83,18 @@ export const site = {
   rooms: [
     {
       name: "Budget Room",
-      description: "[PLACEHOLDER] A short description of the Budget Room.",
+      description: "A simple, pocket-friendly room with a comfortable bed, ceiling fan and attached washroom — ideal for light travellers.",
       images: [],
       facilities: ["Non-AC"],
-      occupancy: "",
-      beds: "",
+      occupancy: "Up to 2 guests",
+      beds: "1 double bed",
       price: "",
       pricePerNight: 0, // [PLACEHOLDER] e.g. 1500 — online booking for this room starts once set
-      maxGuests: 2, // [PLACEHOLDER]
+      maxGuests: 2,
     },
     {
       name: "Standard Couple Room",
-      description: "[PLACEHOLDER] A short description of the Standard Couple Room.",
+      description: "A cosy air-conditioned room with a double bed, wall TV, wooden wardrobe, seating chairs and attached washroom.",
       images: [
         { src: coupleRoom1.url, alt: "Standard Couple Room — bed with TV and seating" },
         { src: coupleRoom2.url, alt: "Standard Couple Room — bed, wardrobe and table" },
@@ -103,15 +103,15 @@ export const site = {
         { src: coupleRoom5.url, alt: "Standard Couple Room — bed, dresser and table" },
       ], // order here = order shown
       facilities: ["Air-conditioned"],
-      occupancy: "",
-      beds: "",
+      occupancy: "Up to 2 guests",
+      beds: "1 double bed",
       price: "",
       pricePerNight: 0, // [PLACEHOLDER] e.g. 2500 — online booking for this room starts once set
-      maxGuests: 2, // [PLACEHOLDER]
+      maxGuests: 2,
     },
     {
       name: "Deluxe Family Room",
-      description: "[PLACEHOLDER] A short description of the Deluxe Family Room.",
+      description: "A spacious air-conditioned room with two or three beds, TV, seating and balcony doors opening to green valley views.",
       images: [
         { src: deluxeRoom1.url, alt: "Deluxe Family Room — two beds with AC and balcony view" },
         { src: deluxeRoom2.url, alt: "Deluxe Family Room — beds, TV and attached washroom" },
@@ -123,20 +123,20 @@ export const site = {
         { src: deluxeRoom8.url, alt: "Deluxe Family Room — three beds opening to the balcony" },
       ], // order here = order shown
       facilities: ["Air-conditioned"],
-      occupancy: "",
-      beds: "",
+      occupancy: "Up to 4–5 guests",
+      beds: "2–3 beds",
       price: "",
       pricePerNight: 0, // [PLACEHOLDER] e.g. 3500 — online booking for this room starts once set
-      maxGuests: 4, // [PLACEHOLDER]
+      maxGuests: 5,
     },
   ] as Room[],
 
   booking: {
     /** % of the total paid online when booking (100 = full payment, 30 = 30% advance). */
     advancePercent: 100, // [PLACEHOLDER]
-    checkInTime: "", // [PLACEHOLDER] e.g. 12:00 PM
-    checkOutTime: "", // [PLACEHOLDER] e.g. 10:00 AM
-    cancellationPolicy: "", // [PLACEHOLDER] shown before payment once added
+    checkInTime: "12:00 PM",
+    checkOutTime: "10:00 AM",
+    cancellationPolicy: "Free cancellation up to 48 hours before check-in. Message us on WhatsApp to change your dates.",
   },
 
   // Approved reviews copied manually. These are NOT synced automatically with Google.
