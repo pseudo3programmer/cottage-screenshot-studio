@@ -11,6 +11,12 @@ import coupleRoom2 from "@/assets/couple-room-2.png.asset.json";
 import coupleRoom3 from "@/assets/couple-room-3.png.asset.json";
 import coupleRoom4 from "@/assets/couple-room-4.png.asset.json";
 import coupleRoom5 from "@/assets/couple-room-5.png.asset.json";
+import standardCoupleRoom1 from "@/assets/standard-couple-room-1.jpg.asset.json";
+import standardCoupleRoom2 from "@/assets/standard-couple-room-2.jpg.asset.json";
+import standardCoupleRoom3 from "@/assets/standard-couple-room-3.jpg.asset.json";
+import standardCoupleRoom4 from "@/assets/standard-couple-room-4.jpg.asset.json";
+import standardCoupleRoom5 from "@/assets/standard-couple-room-5.jpg.asset.json";
+import standardCoupleRoom6 from "@/assets/standard-couple-room-6.jpg.asset.json";
 import budgetRoom6 from "@/assets/budget-room-6.jpg.asset.json";
 import budgetRoom7 from "@/assets/budget-room-7.jpg.asset.json";
 import budgetRoom8 from "@/assets/budget-room-8.jpg.asset.json";
@@ -110,6 +116,12 @@ export const site = {
       images: [
         { src: coupleRoom4.url, alt: "Standard Couple Room — bed, mirror and TV" },
         { src: coupleRoom2.url, alt: "Standard Couple Room — bed, wardrobe and table" },
+        { src: standardCoupleRoom1.url, alt: "Standard Couple Room — bed with sunflower bedspread, wardrobe and mirror" },
+        { src: standardCoupleRoom3.url, alt: "Standard Couple Room — bed with two windows and air conditioning" },
+        { src: standardCoupleRoom4.url, alt: "Standard Couple Room — bed with teal bedspread and window" },
+        { src: standardCoupleRoom5.url, alt: "Standard Couple Room — bed with blue floral bedspread and window" },
+        { src: standardCoupleRoom2.url, alt: "Standard Couple Room — pink room with balcony door and hill view" },
+        { src: standardCoupleRoom6.url, alt: "Standard Couple Room — attached washroom with fish-pattern tiles" },
       ],
       facilities: ["Air-conditioned"],
       occupancy: "Up to 2 guests",
