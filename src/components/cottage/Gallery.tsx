@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import type { RoomImage } from "@/content/site";
+import { Button } from "@/components/ui/button";
 
 export function PhotoPlaceholder({ label = "Your photo here", className = "" }: { label?: string; className?: string }) {
   return (
@@ -28,34 +29,34 @@ export function Gallery({ images, title }: { images: RoomImage[]; title: string 
         <CarouselContent className="ml-0">
           {images.map((img, i) => (
             <CarouselItem key={img.src + i} className="pl-0">
-              <button type="button" onClick={() => { setStart(i); setOpen(true); }} className="block w-full" aria-label={`Open photo ${i + 1} of ${title}`}>
+              <Button variant="ghost" type="button" onClick={() => { setStart(i); setOpen(true); }} className="block h-auto w-full rounded-none p-0" aria-label={`Open photo ${i + 1} of ${title}`}>
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
-              </button>
+              </Button>
             </CarouselItem>
           ))}
         </CarouselContent>
         {images.length > 1 && (
           <>
-            <CarouselPrevious className="left-3" />
-            <CarouselNext className="right-3" />
+            <CarouselPrevious className="left-3 h-11 w-11" />
+            <CarouselNext className="right-3 h-11 w-11" />
           </>
         )}
       </Carousel>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-5xl border-none bg-forest-deep p-2 sm:p-4">
+        <DialogContent className="max-w-5xl border-none bg-forest-deep p-2 pt-14 sm:p-4 sm:pt-14 [&>button]:flex [&>button]:h-11 [&>button]:w-11 [&>button]:items-center [&>button]:justify-center [&>button]:text-primary-foreground">
           <DialogTitle className="sr-only">{title} photos</DialogTitle>
           <Carousel setApi={setApi} opts={{ loop: images.length > 1 }}>
             <CarouselContent>
               {images.map((img, i) => (
                 <CarouselItem key={img.src + i}>
-                  <img src={img.src} alt={img.alt} className="max-h-[80vh] w-full rounded-lg object-contain" />
+                  <img src={img.src} alt={img.alt} className="h-[65svh] w-full rounded-lg object-contain" />
                 </CarouselItem>
               ))}
             </CarouselContent>
             {images.length > 1 && (
               <>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
+                <CarouselPrevious className="left-2 h-11 w-11" />
+                <CarouselNext className="right-2 h-11 w-11" />
               </>
             )}
           </Carousel>

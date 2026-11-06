@@ -121,7 +121,11 @@
 
 html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
 body { font-family: var(--font-sans); }
-h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; text-wrap: balance; }
+p, dd { overflow-wrap: anywhere; }
+a, button { touch-action: manipulation; }
+@utility mobile-contact-bar { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+@utility mobile-menu { padding-bottom: max(1.5rem, env(safe-area-inset-bottom)); }
 @utility bg-hero-overlay { background-image: var(--overlay); }
 @utility fade-up { animation: fade-up 0.8s ease-out both; }
 @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }

@@ -41,7 +41,7 @@ const highlightIcons = [Leaf, Sofa, Mountain, Users];
 
 function Logo() {
   return site.logoSrc ? (
-    <img src={site.logoSrc} alt={`${site.name} logo`} className="h-10 w-auto" />
+    <img src={site.logoSrc} alt={`${site.name} logo`} width={40} height={40} className="h-10 w-10 shrink-0 object-contain" />
   ) : (
     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-lg text-primary-foreground" aria-hidden>
       {site.name.charAt(0)}
@@ -51,7 +51,7 @@ function Logo() {
 
 function WhatsAppButton({ children = "Enquire on WhatsApp", msg, className = "" }: { children?: React.ReactNode; msg?: string; className?: string }) {
   return (
-    <Button asChild size="lg" className={`h-12 rounded-full bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp/90 ${className}`}>
+    <Button asChild size="lg" className={`h-12 min-w-0 rounded-full bg-whatsapp px-4 text-whatsapp-foreground hover:bg-whatsapp/90 sm:px-8 ${className}`}>
       <a href={wa(msg)} {...ext}><MessageCircle className="h-5 w-5" />{children}</a>
     </Button>
   );
@@ -68,10 +68,10 @@ function ComingSoon({ children, className = "" }: { children: React.ReactNode; c
 
 function Section({ id, eyebrow, heading, children, className = "" }: { id: string; eyebrow: string; heading: string; children: React.ReactNode; className?: string }) {
   return (
-    <section id={id} className={`px-5 py-16 sm:py-24 ${className}`}>
+    <section id={id} className={`px-4 py-12 sm:px-5 sm:py-24 ${className}`}>
       <div className="mx-auto max-w-5xl">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">{eyebrow}</p>
-        <h2 className="mt-2 text-4xl font-semibold sm:text-5xl">{heading}</h2>
+        <p className="text-xs font-bold uppercase text-primary">{eyebrow}</p>
+        <h2 className="mt-2 text-3xl font-semibold sm:text-5xl">{heading}</h2>
         <div className="mt-8">{children}</div>
       </div>
     </section>
@@ -87,22 +87,22 @@ function Index() {
   const insta = instagramLink(contact.instagram);
 
   return (
-    <div className="min-h-screen pb-20 md:pb-0">
+    <div className="min-h-screen pb-[calc(5rem+env(safe-area-inset-bottom))] lg:pb-0">
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
-          <a href="#top" className="flex items-center gap-2"><Logo /><span className="font-display text-xl font-semibold">{site.name}</span></a>
-          <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
+        <div className="mx-auto grid h-16 max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5 lg:flex lg:justify-between">
+          <a href="#top" className="flex min-w-0 items-center gap-2"><Logo /><span className="truncate font-display text-lg font-semibold sm:text-xl">{site.name}</span></a>
+          <nav className="hidden shrink-0 items-center gap-5 lg:flex" aria-label="Main">
             {nav.map((n) => <a key={n.href} href={n.href} className="text-sm hover:text-primary">{n.label}</a>)}
             {insta && <a href={insta} {...ext} aria-label="Instagram profile" className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:bg-secondary"><Instagram className="h-5 w-5" /></a>}
           </nav>
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild><Button variant="ghost" size="icon" className="h-11 w-11 md:hidden" aria-label="Open menu"><Menu /></Button></SheetTrigger>
-            <SheetContent side="right" className="bg-background">
-              <SheetTitle className="font-display text-2xl">{site.name}</SheetTitle>
+            <SheetTrigger asChild><Button variant="ghost" size="icon" className="h-11 w-11 shrink-0 lg:hidden" aria-label="Open menu"><Menu /></Button></SheetTrigger>
+            <SheetContent side="right" className="mobile-menu w-[calc(100%-1rem)] max-w-sm overflow-y-auto bg-background px-5" aria-describedby={undefined}>
+              <SheetTitle className="pr-10 font-display text-2xl">{site.name}</SheetTitle>
               <nav className="mt-6 flex flex-col" aria-label="Mobile">
                 {nav.map((n) => <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="border-b border-border py-4 text-lg">{n.label}</a>)}
               </nav>
-              <div className="mt-6 flex gap-3">
+              <div className="mt-6 grid grid-cols-[minmax(0,1fr)_auto] gap-3">
                 <WhatsAppButton className="flex-1" />
                 {call && <Button asChild size="lg" variant="outline" className="h-12 w-14 shrink-0 rounded-full px-0" aria-label="Call us"><a href={call}><Phone className="h-5 w-5" /></a></Button>}
               </div>
@@ -113,15 +113,15 @@ function Index() {
 
       <main id="top">
         <section className="relative">
-          <div className="relative h-[82vh] min-h-[520px] overflow-hidden">
-            {site.heroImage ? <img src={site.heroImage} alt={`${site.name} in Matheran`} className="h-full w-full object-cover" fetchPriority="high" /> : <PhotoPlaceholder label="Your cottage photo here" className="h-full w-full !items-start !bg-forest-deep pt-20 !text-primary-foreground/70" />}
+          <div className="relative min-h-[min(32rem,70svh)] overflow-hidden sm:min-h-[min(42rem,75svh)]">
+            {site.heroImage ? <img src={site.heroImage} alt={`${site.name} in Matheran`} className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" /> : <PhotoPlaceholder label="Your cottage photo here" className="absolute inset-0 h-full w-full !items-start !bg-forest-deep pt-20 !text-primary-foreground/70" />}
             <div className="absolute inset-0 bg-hero-overlay" />
-            <div className="absolute inset-x-0 bottom-0 px-5 pb-12">
+            <div className="relative px-4 pt-8 pb-6 sm:px-5 sm:pt-36 sm:pb-12">
               <div className="fade-up mx-auto max-w-5xl text-primary-foreground">
-                <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent">{site.tagline}</p>
-                <h1 className="mt-3 max-w-2xl text-5xl font-semibold leading-[1.05] sm:text-7xl">{site.heroHeadline}</h1>
+                <p className="text-xs font-bold uppercase text-accent">{site.tagline}</p>
+                <h1 className="mt-3 max-w-2xl text-4xl font-semibold leading-[1.1] max-[360px]:text-3xl sm:text-6xl lg:text-7xl">{site.heroHeadline}</h1>
                 <p className="mt-4 max-w-xl text-base opacity-90 sm:text-lg">{site.heroText}</p>
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row">
                   <WhatsAppButton />
                   <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-primary-foreground/60 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><a href="#rooms">Explore Our Rooms</a></Button>
                 </div>
@@ -131,14 +131,14 @@ function Index() {
         </section>
 
         <Section id="about" eyebrow="About the cottage" heading="Slow days in the hills">
-          <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">{site.about.map((p, i) => <p key={i}>{p}</p>)}</div>
+          <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">{site.about.map((p, i) => <p key={i}>{p}</p>)}</div>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2">
             {site.highlights.map((h, i) => {
               const Icon = highlightIcons[i % highlightIcons.length] ?? Leaf;
               return (
                 <li key={h.title} className="flex gap-4 rounded-2xl bg-card p-5 shadow-soft">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><Icon className="h-5 w-5" /></span>
-                  <div><h3 className="text-xl font-semibold">{h.title}</h3><p className="mt-1 text-sm text-muted-foreground">{h.text}</p></div>
+                  <div className="min-w-0"><h3 className="text-xl font-semibold">{h.title}</h3><p className="mt-1 text-sm text-muted-foreground">{h.text}</p></div>
                 </li>
               );
             })}
@@ -150,7 +150,7 @@ function Index() {
             {site.rooms.map((room) => {
               const details = roomDetails(room);
               return (
-                <article key={room.name} className="overflow-hidden rounded-2xl bg-card shadow-soft">
+                <article key={room.name} className="min-w-0 overflow-hidden rounded-2xl bg-card shadow-soft">
                   <Gallery images={room.images} title={room.name} />
                   <div className="p-5">
                     <h3 className="text-2xl font-semibold">{room.name}</h3>
@@ -210,7 +210,7 @@ function Index() {
         </Section>
       </main>
 
-      <footer className="bg-forest-deep px-5 pt-12 pb-28 text-primary-foreground md:pb-12">
+      <footer className="bg-forest-deep px-4 py-12 text-primary-foreground sm:px-5">
         <div className="mx-auto flex max-w-5xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3"><Logo /><div><p className="font-display text-xl">{site.name}</p><p className="text-sm opacity-75">Matheran, Maharashtra</p></div></div>
           <div className="flex flex-wrap items-center gap-5 text-sm">
@@ -223,9 +223,9 @@ function Index() {
         <p className="mx-auto mt-8 max-w-5xl text-xs opacity-60">© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
       </footer>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
+      <div className="mobile-contact-bar fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background/95 p-3 backdrop-blur lg:hidden">
         {call ? (
-          <div className="flex gap-3">
+          <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-3">
             <WhatsAppButton className="w-full flex-1" />
             <Button asChild size="lg" variant="outline" className="h-12 w-14 shrink-0 rounded-full px-0" aria-label="Call us"><a href={call}><Phone className="h-5 w-5" /></a></Button>
           </div>

@@ -39,8 +39,8 @@ export function Reviews() {
             {live.reviews.map((r, i) => (
               <article key={i} className="rounded-2xl bg-card p-5 shadow-soft">
                 <div className="mb-3 flex items-center gap-3">
-                  {r.photo && <img src={r.photo} alt="" referrerPolicy="no-referrer" loading="lazy" className="h-10 w-10 rounded-full" />}
-                  <div>
+                  {r.photo && <img src={r.photo} alt="" referrerPolicy="no-referrer" loading="lazy" className="h-10 w-10 shrink-0 rounded-full" />}
+                  <div className="min-w-0 break-words">
                     {r.authorUrl ? <a href={r.authorUrl} target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">{r.author}</a> : <p className="font-medium">{r.author}</p>}
                     {r.relativeTime && <p className="text-xs text-muted-foreground">{r.relativeTime}</p>}
                   </div>
@@ -78,7 +78,7 @@ export function Reviews() {
       )}
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        {mapsUrl && <Button asChild size="lg" className="h-12 rounded-full"><a href={mapsUrl} target="_blank" rel="noopener noreferrer">Read All Reviews on Google</a></Button>}
+        {mapsUrl && <Button asChild size="lg" className="h-12 rounded-full px-4 sm:px-8"><a href={mapsUrl} target="_blank" rel="noopener noreferrer">Read All Reviews on Google</a></Button>}
         {site.location.writeReviewUrl && <Button asChild size="lg" variant="outline" className="h-12 rounded-full"><a href={site.location.writeReviewUrl} target="_blank" rel="noopener noreferrer">Write a Review</a></Button>}
       </div>
     </div>
