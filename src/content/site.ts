@@ -20,7 +20,7 @@ import deluxeRoom6 from "@/assets/deluxe-family-room-6.png.asset.json";
 import deluxeRoom7 from "@/assets/deluxe-family-room-7.png.asset.json";
 import deluxeRoom8 from "@/assets/deluxe-family-room-8.png.asset.json";
 
-export type RoomImage = { src: string; alt: string };
+export type RoomImage = { src: string; alt: string; label?: string };
 
 export type Room = {
   name: string;
@@ -84,7 +84,13 @@ export const site = {
     {
       name: "Budget Room",
       description: "A simple, pocket-friendly room with a comfortable bed, ceiling fan and attached washroom — ideal for light travellers.",
-      images: [],
+      images: [
+        { src: coupleRoom1.url, alt: "Budget Room — bed with TV and seating", label: "Photo 1" },
+        { src: coupleRoom2.url, alt: "Budget Room — bed, wardrobe and table", label: "Photo 2" },
+        { src: coupleRoom3.url, alt: "Budget Room — bed with yellow curtains", label: "Photo 3" },
+        { src: coupleRoom4.url, alt: "Budget Room — bed, mirror and TV", label: "Photo 4" },
+        { src: coupleRoom5.url, alt: "Budget Room — bed, dresser and table", label: "Photo 5" },
+      ],
       facilities: ["Non-AC"],
       occupancy: "Up to 2 guests",
       beds: "1 double bed",
@@ -95,13 +101,7 @@ export const site = {
     {
       name: "Standard Couple Room",
       description: "A cosy air-conditioned room with a double bed, wall TV, wooden wardrobe, seating chairs and attached washroom.",
-      images: [
-        { src: coupleRoom1.url, alt: "Standard Couple Room — bed with TV and seating" },
-        { src: coupleRoom2.url, alt: "Standard Couple Room — bed, wardrobe and table" },
-        { src: coupleRoom3.url, alt: "Standard Couple Room — bed with yellow curtains" },
-        { src: coupleRoom4.url, alt: "Standard Couple Room — bed, mirror and TV" },
-        { src: coupleRoom5.url, alt: "Standard Couple Room — bed, dresser and table" },
-      ], // order here = order shown
+      images: [],
       facilities: ["Air-conditioned"],
       occupancy: "Up to 2 guests",
       beds: "1 double bed",

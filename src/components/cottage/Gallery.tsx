@@ -29,8 +29,9 @@ export function Gallery({ images, title }: { images: RoomImage[]; title: string 
         <CarouselContent className="ml-0">
           {images.map((img, i) => (
             <CarouselItem key={img.src + i} className="pl-0">
-              <Button variant="ghost" type="button" onClick={() => { setStart(i); setOpen(true); }} className="block h-auto w-full rounded-none p-0" aria-label={`Open photo ${i + 1} of ${title}`}>
+              <Button variant="ghost" type="button" onClick={() => { setStart(i); setOpen(true); }} className="relative block h-auto w-full rounded-none p-0" aria-label={`Open ${img.label?.toLowerCase() ?? `photo ${i + 1}`} of ${title}`}>
                 <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
+                {img.label && <span className="absolute bottom-3 left-3 rounded-md bg-forest-deep px-3 py-1.5 text-sm font-semibold text-primary-foreground">{img.label}</span>}
               </Button>
             </CarouselItem>
           ))}
@@ -48,8 +49,9 @@ export function Gallery({ images, title }: { images: RoomImage[]; title: string 
           <Carousel setApi={setApi} opts={{ loop: images.length > 1 }}>
             <CarouselContent>
               {images.map((img, i) => (
-                <CarouselItem key={img.src + i}>
+                <CarouselItem key={img.src + i} className="relative">
                   <img src={img.src} alt={img.alt} className="h-[65svh] w-full rounded-lg object-contain" />
+                  {img.label && <span className="absolute bottom-3 left-7 rounded-md bg-forest-deep px-3 py-1.5 text-sm font-semibold text-primary-foreground">{img.label}</span>}
                 </CarouselItem>
               ))}
             </CarouselContent>
