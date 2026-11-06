@@ -11,6 +11,10 @@ import coupleRoom2 from "@/assets/couple-room-2.png.asset.json";
 import coupleRoom3 from "@/assets/couple-room-3.png.asset.json";
 import coupleRoom4 from "@/assets/couple-room-4.png.asset.json";
 import coupleRoom5 from "@/assets/couple-room-5.png.asset.json";
+import budgetRoom6 from "@/assets/budget-room-6.jpg.asset.json";
+import budgetRoom7 from "@/assets/budget-room-7.jpg.asset.json";
+import budgetRoom8 from "@/assets/budget-room-8.jpg.asset.json";
+import budgetRoom9 from "@/assets/budget-room-9.jpg.asset.json";
 import deluxeRoom1 from "@/assets/deluxe-family-room-1.png.asset.json";
 import deluxeRoom2 from "@/assets/deluxe-family-room-2.png.asset.json";
 import deluxeRoom3 from "@/assets/deluxe-family-room-3.png.asset.json";
@@ -88,6 +92,10 @@ export const site = {
         { src: coupleRoom1.url, alt: "Budget Room — bed with TV and seating" },
         { src: coupleRoom3.url, alt: "Budget Room — bed with yellow curtains" },
         { src: coupleRoom5.url, alt: "Budget Room — bed, dresser and table" },
+        { src: budgetRoom6.url, alt: "Budget Room — bed, TV and cane chair" },
+        { src: budgetRoom8.url, alt: "Budget Room — floral bed, wardrobe and mirror" },
+        { src: budgetRoom9.url, alt: "Budget Room — teal bed with chairs and table" },
+        { src: budgetRoom7.url, alt: "Budget Room — attached washroom" },
       ],
       facilities: ["Non-AC"],
       occupancy: "Up to 2 guests",
