@@ -65,7 +65,7 @@ export const site = {
     whatsapp: "918806432531",
     phone: "+91 88064 32531",
     email: "", // optional
-    instagram: "", // [PLACEHOLDER] e.g. https://instagram.com/yourcottage, or just @yourcottage
+    instagram: "https://www.instagram.com/kaushik_cottege",
 
     whatsappMessage:
       "Hello! I am interested in staying at your cottage in Matheran. Could you please share the room availability and details?",

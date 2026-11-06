@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { site } from "@/content/site";
 import { instagramLink, phoneLink, roomDetails, whatsappLink } from "@/lib/contact";
 
 describe("whatsappLink", () => {
@@ -38,5 +39,15 @@ describe("instagramLink", () => {
 describe("roomDetails", () => {
   it("hides empty occupancy, beds and price", () => {
     expect(roomDetails({ occupancy: "", beds: " ", price: "₹3000" })).toEqual([{ label: "Price", value: "₹3000" }]);
+  });
+});
+
+describe("configured contacts", () => {
+  it("points Instagram at the cottage's own profile", () => {
+    expect(instagramLink(site.contact.instagram)).toBe("https://www.instagram.com/kaushik_cottege");
+  });
+  it("sends WhatsApp and calls to the cottage's number", () => {
+    expect(whatsappLink(site.contact.whatsapp, "Hi")?.startsWith("https://wa.me/918806432531?text=")).toBe(true);
+    expect(phoneLink(site.contact.phone)).toBe("tel:+918806432531");
   });
 });
