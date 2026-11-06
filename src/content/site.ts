@@ -85,11 +85,9 @@ export const site = {
       name: "Budget Room",
       description: "A simple, pocket-friendly room with a comfortable bed, ceiling fan and attached washroom — ideal for light travellers.",
       images: [
-        { src: coupleRoom1.url, alt: "Budget Room — bed with TV and seating", label: "Photo 1" },
-        { src: coupleRoom2.url, alt: "Budget Room — bed, wardrobe and table", label: "Photo 2" },
-        { src: coupleRoom3.url, alt: "Budget Room — bed with yellow curtains", label: "Photo 3" },
-        { src: coupleRoom4.url, alt: "Budget Room — bed, mirror and TV", label: "Photo 4" },
-        { src: coupleRoom5.url, alt: "Budget Room — bed, dresser and table", label: "Photo 5" },
+        { src: coupleRoom1.url, alt: "Budget Room — bed with TV and seating" },
+        { src: coupleRoom3.url, alt: "Budget Room — bed with yellow curtains" },
+        { src: coupleRoom5.url, alt: "Budget Room — bed, dresser and table" },
       ],
       facilities: ["Non-AC"],
       occupancy: "Up to 2 guests",
@@ -101,7 +99,10 @@ export const site = {
     {
       name: "Standard Couple Room",
       description: "A cosy air-conditioned room with a double bed, wall TV, wooden wardrobe, seating chairs and attached washroom.",
-      images: [],
+      images: [
+        { src: coupleRoom4.url, alt: "Standard Couple Room — bed, mirror and TV" },
+        { src: coupleRoom2.url, alt: "Standard Couple Room — bed, wardrobe and table" },
+      ],
       facilities: ["Air-conditioned"],
       occupancy: "Up to 2 guests",
       beds: "1 double bed",
