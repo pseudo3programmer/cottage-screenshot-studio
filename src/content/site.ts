@@ -152,6 +152,42 @@ export const site = {
     },
   ] as Room[],
 
+  // Cottage kitchen menu — item names only (prices are shared on request).
+  menu: [
+    {
+      title: "Breakfast",
+      timing: "8:30 – 10:30 AM",
+      items: [
+        "Tea", "Coffee", "Milk (Cup / Glass)",
+        "Kanda Poha", "Batata Poha", "Upma", "Sheera",
+        "Single / Double Omelet Pav", "Single / Double Egg Burji Pav",
+        "Plain / Masala / Cheese Maggi",
+        "Finger Chips", "Bread Butter", "Jam Bread",
+      ],
+    },
+    {
+      title: "Lunch & Dinner",
+      timing: "12:30 – 2:30 PM • 8:00 – 9:30 PM",
+      items: [
+        "Special Veg Thali", "Veg Thali", "Baida (Egg) Curry Thali",
+        "Chicken Thali", "Mutton Thali",
+        "Chicken Handi (1 Kg / ½ Kg)", "Mutton Handi (1 Kg / ½ Kg)",
+        "Plain Rice", "Chapati", "Bhakari", "Green Salad",
+        "Boiled Egg", "Papad (Roasted / Fried)",
+        "Extra Dal Vati", "Extra Bhaji Plate",
+      ],
+    },
+    {
+      title: "Also available",
+      timing: "",
+      items: [
+        "Hot water bucket (7:30 – 10:00 AM)",
+        "Extra mattress set (per day)",
+        "Cold drinks & Bisleri",
+      ],
+    },
+  ],
+
   booking: {
     /** % of the total paid online when booking (100 = full payment, 30 = 30% advance). */
     advancePercent: 100, // [PLACEHOLDER]

@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Gallery, PhotoPlaceholder } from "@/components/cottage/Gallery";
 import { Reviews } from "@/components/cottage/Reviews";
-import { Booking } from "@/components/cottage/Booking";
 
 const title = `${site.name} — Peaceful Cottage in Matheran`;
 const description = "A cozy cottage in Matheran, Maharashtra. Explore our rooms, read guest reviews and enquire on WhatsApp.";
@@ -29,7 +28,7 @@ export const Route = createFileRoute("/")({
 const nav = [
   { href: "#about", label: "About" },
   { href: "#rooms", label: "Rooms & Photos" },
-  { href: "#book", label: "Book" },
+  { href: "#food", label: "Food" },
   { href: "#reviews", label: "Reviews" },
   { href: "#location", label: "Location" },
   { href: "#contact", label: "Contact" },
@@ -172,7 +171,21 @@ function Index() {
           <div className="mt-10 text-center"><WhatsAppButton>Ask About Availability</WhatsAppButton></div>
         </Section>
 
-        <Section id="book" eyebrow="Book your stay" heading="Check dates & book"><Booking /></Section>
+        <Section id="food" eyebrow="Food & dining" heading="Fresh from our kitchen">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {site.menu.map((m) => (
+              <div key={m.title} className="rounded-2xl bg-card p-5 shadow-soft">
+                <h3 className="font-display text-2xl font-semibold">{m.title}</h3>
+                {m.timing && <p className="mt-1 text-sm font-medium text-primary">{m.timing}</p>}
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  {m.items.map((item) => <li key={item} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-center text-sm text-muted-foreground">Meals are made to order — message us on WhatsApp for today's menu and prices.</p>
+          <div className="mt-5 text-center"><WhatsAppButton msg="Hello! I'd like to know today's food menu and prices at your cottage in Matheran.">Ask for Today's Menu</WhatsAppButton></div>
+        </Section>
 
         <Section id="reviews" eyebrow="Guest reviews" heading="Kind words from guests"><Reviews /></Section>
 
