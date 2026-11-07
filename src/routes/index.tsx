@@ -188,19 +188,15 @@ function Index() {
           <div className="mt-5 text-center"><WhatsAppButton msg="Hello! I'd like to know today's food menu and prices at your cottage in Matheran.">Ask for Today's Menu</WhatsAppButton></div>
         </Section>
 
-        <Section id="gallery" eyebrow="Around Matheran" heading="Sights to explore" className="bg-secondary/60">
-          <p className="max-w-xl text-muted-foreground">Viewpoints, lakes and heritage spots near the cottage — photos being added.</p>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {site.gallery.map((g) => (
-              <figure key={g.name} className="overflow-hidden rounded-2xl bg-card shadow-soft">
-                {g.src ? (
-                  <img src={g.src} alt={g.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
-                ) : (
-                  <PhotoPlaceholder label="Photo coming soon" className="aspect-[4/3] w-full" />
-                )}
-                <figcaption className="p-3 text-sm font-medium">{g.name}</figcaption>
-              </figure>
-            ))}
+        <Section id="gallery" eyebrow="Gallery" heading="Around Matheran" className="bg-secondary/60">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {site.gallery.length > 0
+              ? site.gallery.map((img, i) => (
+                  <img key={img.src + i} src={img.src} alt={img.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-soft" />
+                ))
+              : Array.from({ length: 8 }, (_, i) => (
+                  <PhotoPlaceholder key={i} label="Photo coming soon" className="aspect-[4/3] w-full rounded-2xl" />
+                ))}
           </div>
         </Section>
 

@@ -52,11 +52,7 @@ export type ManualReview = {
   date?: string;
 };
 
-export type GalleryItem = {
-  name: string;
-  src: string; // leave "" to show a "Photo coming soon" tile
-  alt: string;
-};
+
 
 export const site = {
   name: "Kaushik Cottage",
@@ -194,17 +190,8 @@ export const site = {
     },
   ],
 
-  // Matheran attractions gallery — add a photo URL to `src` for each spot as you collect them.
-  gallery: [
-    { name: "Charlotte Lake", src: "", alt: "Charlotte Lake, Matheran" },
-    { name: "Louisa Point", src: "", alt: "Louisa Point viewpoint, Matheran" },
-    { name: "Panorama Point", src: "", alt: "Panorama Point sunrise view, Matheran" },
-    { name: "Echo Point", src: "", alt: "Echo Point, Matheran" },
-    { name: "Porcupine Point (Sunset Point)", src: "", alt: "Porcupine Point sunset, Matheran" },
-    { name: "One Tree Hill", src: "", alt: "One Tree Hill, Matheran" },
-    { name: "Matheran Toy Train", src: "", alt: "Heritage toy train, Matheran" },
-    { name: "Alexander Point", src: "", alt: "Alexander Point, Matheran" },
-  ] as GalleryItem[],
+  // Photo gallery — just add photos here (order here = order shown). Empty = "Photo coming soon" tiles.
+  gallery: [] as RoomImage[],
 
   booking: {
     /** % of the total paid online when booking (100 = full payment, 30 = 30% advance). */
