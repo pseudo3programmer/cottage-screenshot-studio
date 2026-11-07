@@ -29,6 +29,7 @@ const nav = [
   { href: "#about", label: "About" },
   { href: "#rooms", label: "Rooms & Photos" },
   { href: "#food", label: "Food" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#reviews", label: "Reviews" },
   { href: "#location", label: "Location" },
   { href: "#contact", label: "Contact" },
@@ -185,6 +186,22 @@ function Index() {
           </div>
           <p className="mt-8 text-center text-sm text-muted-foreground">Meals are made to order — message us on WhatsApp for today's menu and prices.</p>
           <div className="mt-5 text-center"><WhatsAppButton msg="Hello! I'd like to know today's food menu and prices at your cottage in Matheran.">Ask for Today's Menu</WhatsAppButton></div>
+        </Section>
+
+        <Section id="gallery" eyebrow="Around Matheran" heading="Sights to explore" className="bg-secondary/60">
+          <p className="max-w-xl text-muted-foreground">Viewpoints, lakes and heritage spots near the cottage — photos being added.</p>
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {site.gallery.map((g) => (
+              <figure key={g.name} className="overflow-hidden rounded-2xl bg-card shadow-soft">
+                {g.src ? (
+                  <img src={g.src} alt={g.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
+                ) : (
+                  <PhotoPlaceholder label="Photo coming soon" className="aspect-[4/3] w-full" />
+                )}
+                <figcaption className="p-3 text-sm font-medium">{g.name}</figcaption>
+              </figure>
+            ))}
+          </div>
         </Section>
 
         <Section id="reviews" eyebrow="Guest reviews" heading="Kind words from guests"><Reviews /></Section>
