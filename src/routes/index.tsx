@@ -190,17 +190,21 @@ function Index() {
 
         <Section id="gallery" eyebrow="Gallery" heading="Around Matheran" className="bg-secondary/60">
           {site.gallery.length > 0 ? (
-            <div className="columns-2 gap-3 sm:columns-3 sm:gap-4 [&>img]:mb-3 sm:[&>img]:mb-4">
-              {site.gallery.map((img, i) => (
-                <img
-                  key={img.src + i}
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className={`w-full break-inside-avoid rounded-2xl object-cover shadow-soft transition-transform duration-300 hover:scale-[1.02] ${i % 3 === 1 ? "sm:mt-8" : ""}`}
-                />
-              ))}
+            <div className="grid grid-flow-dense grid-cols-2 gap-3 [grid-auto-rows:9rem] sm:grid-cols-4 sm:gap-4 sm:[grid-auto-rows:11rem]">
+              {site.gallery.map((img, i) => {
+                const span = i % 5 === 0 ? "col-span-2 row-span-2" : i % 5 === 3 ? "row-span-2" : "";
+                return (
+                  <figure key={img.src + i} className={`group overflow-hidden rounded-2xl shadow-soft ${span}`}>
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </figure>
+                );
+              })}
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
