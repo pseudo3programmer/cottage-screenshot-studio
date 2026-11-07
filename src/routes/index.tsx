@@ -7,12 +7,15 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Gallery, PhotoPlaceholder } from "@/components/cottage/Gallery";
 import { Reviews } from "@/components/cottage/Reviews";
+import { DeferredPhoto, Photo } from "@/components/cottage/Photo";
+import { photoSources } from "@/lib/photos";
 
 const title = `${site.name} — Peaceful Cottage in Matheran`;
 const description = "A cozy cottage in Matheran, Maharashtra. Explore our rooms, read guest reviews and enquire on WhatsApp.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: site.heroImage ? [{ rel: "preload", as: "image", href: photoSources(site.heroImage).src, imageSrcSet: photoSources(site.heroImage).srcSet, imageSizes: "100vw", fetchPriority: "high" }] : [],
     meta: [
       { title },
       { name: "description", content: description },
@@ -41,7 +44,7 @@ const highlightIcons = [Leaf, Sofa, Mountain, Users];
 
 function Logo() {
   return site.logoSrc ? (
-    <img src={site.logoSrc} alt={`${site.name} logo`} width={40} height={40} className="h-10 w-10 shrink-0 object-contain" />
+    <Photo src={site.logoSrc} alt={`${site.name} logo`} sizes="40px" width={40} height={40} decoding="async" className="h-10 w-10 shrink-0 object-contain" />
   ) : (
     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-lg text-primary-foreground" aria-hidden>
       {site.name.charAt(0)}
@@ -114,7 +117,7 @@ function Index() {
       <main id="top">
         <section className="relative">
           <div className="relative min-h-[min(32rem,70svh)] overflow-hidden sm:min-h-[min(42rem,75svh)]">
-            {site.heroImage ? <img src={site.heroImage} alt={`${site.name} in Matheran`} className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" /> : <PhotoPlaceholder label="Your cottage photo here" className="absolute inset-0 h-full w-full !items-start !bg-forest-deep pt-20 !text-primary-foreground/70" />}
+            {site.heroImage ? <Photo src={site.heroImage} alt={`${site.name} in Matheran`} sizes="100vw" loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover" fetchPriority="high" /> : <PhotoPlaceholder label="Your cottage photo here" className="absolute inset-0 h-full w-full !items-start !bg-forest-deep pt-20 !text-primary-foreground/70" />}
             <div className="absolute inset-0 bg-hero-overlay" />
             <div className="relative px-4 pt-8 pb-6 sm:px-5 sm:pt-36 sm:pb-12">
               <div className="fade-up mx-auto max-w-5xl text-primary-foreground">
@@ -195,11 +198,10 @@ function Index() {
                 const span = i % 5 === 0 ? "col-span-2 row-span-2" : i % 5 === 3 ? "row-span-2" : "";
                 return (
                   <figure key={img.src + i} className={`group overflow-hidden rounded-2xl shadow-soft ${span}`}>
-                    <img
+                    <DeferredPhoto
                       src={img.src}
                       alt={img.alt}
-                      loading="lazy"
-                      decoding="async"
+                      sizes={i % 5 === 0 ? "(min-width: 1024px) 504px, (min-width: 640px) 50vw, calc(100vw - 32px)" : "(min-width: 1024px) 244px, (min-width: 640px) 25vw, 50vw"}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </figure>

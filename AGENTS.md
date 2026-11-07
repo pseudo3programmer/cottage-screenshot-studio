@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 ## Project rules
+- Serve cottage images through the pre-compressed CDN rendition manifest and shared Photo controls; prioritize the hero and defer offscreen carousel slides to avoid competing downloads.
 - Cottage navigation uses the mobile drawer and safe-area-aware contact bar below the large breakpoint; photo controls retain 44px touch targets so tablet and phone navigation stays usable.
 - All cottage facts, contacts, rooms and manual reviews live in `src/content/site.ts`; components read from it so the owner edits one file. Empty fields are hidden, never invented.
 - Google reviews come only from the `getGoogleReviews` server function (Places API New via the Google Maps connector gateway, env `LOVABLE_API_KEY` + `GOOGLE_MAPS_API_KEY`, place ID from `site.location.googlePlaceId`), falling back to manual reviews; keys never reach the browser.
