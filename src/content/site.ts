@@ -39,6 +39,9 @@ import gallery7 from "@/assets/gallery-7.jpg.asset.json";
 import gallery8 from "@/assets/gallery-8.jpg.asset.json";
 import gallery9 from "@/assets/gallery-9.jpg.asset.json";
 import gallery10 from "@/assets/gallery-10.jpg.asset.json";
+import gallery11 from "@/assets/gallery-11.jpg.asset.json";
+import gallery12 from "@/assets/gallery-12.jpg.asset.json";
+import gallery13 from "@/assets/gallery-13.jpg.asset.json";
 
 export type RoomImage = { src: string; alt: string; label?: string };
 
@@ -212,6 +215,9 @@ export const site = {
     { src: gallery8.url, alt: "Foggy forest walking path under tall trees" },
     { src: gallery9.url, alt: "Valley and lake view from a hilltop point" },
     { src: gallery10.url, alt: "A monkey resting on a wall above the forest" },
+    { src: gallery11.url, alt: "I Love Matheran sign on the walking trail" },
+    { src: gallery12.url, alt: "Heritage toy train engine on the forest track" },
+    { src: gallery13.url, alt: "Toy train winding along a misty hillside" },
   ] as RoomImage[],
 
   booking: {
