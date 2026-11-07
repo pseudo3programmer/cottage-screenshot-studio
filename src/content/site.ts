@@ -29,6 +29,16 @@ import deluxeRoom5 from "@/assets/deluxe-family-room-5.png.asset.json";
 import deluxeRoom6 from "@/assets/deluxe-family-room-6.png.asset.json";
 import deluxeRoom7 from "@/assets/deluxe-family-room-7.png.asset.json";
 import deluxeRoom8 from "@/assets/deluxe-family-room-8.png.asset.json";
+import gallery1 from "@/assets/gallery-1.jpg.asset.json";
+import gallery2 from "@/assets/gallery-2.jpg.asset.json";
+import gallery3 from "@/assets/gallery-3.jpg.asset.json";
+import gallery4 from "@/assets/gallery-4.jpg.asset.json";
+import gallery5 from "@/assets/gallery-5.jpg.asset.json";
+import gallery6 from "@/assets/gallery-6.jpg.asset.json";
+import gallery7 from "@/assets/gallery-7.jpg.asset.json";
+import gallery8 from "@/assets/gallery-8.jpg.asset.json";
+import gallery9 from "@/assets/gallery-9.jpg.asset.json";
+import gallery10 from "@/assets/gallery-10.jpg.asset.json";
 
 export type RoomImage = { src: string; alt: string; label?: string };
 
@@ -191,7 +201,18 @@ export const site = {
   ],
 
   // Photo gallery — just add photos here (order here = order shown). Empty = "Photo coming soon" tiles.
-  gallery: [] as RoomImage[],
+  gallery: [
+    { src: gallery1.url, alt: "Toy train track beside a monsoon waterfall in the mist" },
+    { src: gallery2.url, alt: "Green valley and village view from a Matheran point" },
+    { src: gallery3.url, alt: "Waterfalls streaming down misty cliffs" },
+    { src: gallery4.url, alt: "Fresh guavas, star fruit and berries at a trail-side stall" },
+    { src: gallery5.url, alt: "Fruit vendor's stall on a Matheran walking path" },
+    { src: gallery6.url, alt: "Horses in yellow raincoats on a misty forest trail" },
+    { src: gallery7.url, alt: "Welcome to Matheran arch at the railway station" },
+    { src: gallery8.url, alt: "Foggy forest walking path under tall trees" },
+    { src: gallery9.url, alt: "Valley and lake view from a hilltop point" },
+    { src: gallery10.url, alt: "A monkey resting on a wall above the forest" },
+  ] as RoomImage[],
 
   booking: {
     /** % of the total paid online when booking (100 = full payment, 30 = 30% advance). */

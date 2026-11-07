@@ -189,15 +189,26 @@ function Index() {
         </Section>
 
         <Section id="gallery" eyebrow="Gallery" heading="Around Matheran" className="bg-secondary/60">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {site.gallery.length > 0
-              ? site.gallery.map((img, i) => (
-                  <img key={img.src + i} src={img.src} alt={img.alt} loading="lazy" decoding="async" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-soft" />
-                ))
-              : Array.from({ length: 8 }, (_, i) => (
-                  <PhotoPlaceholder key={i} label="Photo coming soon" className="aspect-[4/3] w-full rounded-2xl" />
-                ))}
-          </div>
+          {site.gallery.length > 0 ? (
+            <div className="columns-2 gap-3 sm:columns-3 sm:gap-4 [&>img]:mb-3 sm:[&>img]:mb-4">
+              {site.gallery.map((img, i) => (
+                <img
+                  key={img.src + i}
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className={`w-full break-inside-avoid rounded-2xl object-cover shadow-soft transition-transform duration-300 hover:scale-[1.02] ${i % 3 === 1 ? "sm:mt-8" : ""}`}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              {Array.from({ length: 8 }, (_, i) => (
+                <PhotoPlaceholder key={i} label="Photo coming soon" className="aspect-[4/3] w-full rounded-2xl" />
+              ))}
+            </div>
+          )}
         </Section>
 
         <Section id="reviews" eyebrow="Guest reviews" heading="Kind words from guests"><Reviews /></Section>
