@@ -29,6 +29,8 @@ import deluxeRoom5 from "@/assets/deluxe-family-room-5.png.asset.json";
 import deluxeRoom6 from "@/assets/deluxe-family-room-6.png.asset.json";
 import deluxeRoom7 from "@/assets/deluxe-family-room-7.png.asset.json";
 import deluxeRoom8 from "@/assets/deluxe-family-room-8.png.asset.json";
+import familyWashroom1 from "@/assets/family-washroom-1.png.asset.json";
+import familyWashroom2 from "@/assets/family-washroom-2.png.asset.json";
 import gallery1 from "@/assets/gallery-1.jpg.asset.json";
 import gallery2 from "@/assets/gallery-2.jpg.asset.json";
 import gallery3 from "@/assets/gallery-3.jpg.asset.json";
@@ -157,6 +159,8 @@ export const site = {
         { src: deluxeRoom6.url, alt: "Deluxe Family Room — three beds with table and chairs" },
         { src: deluxeRoom7.url, alt: "Deluxe Family Room — three beds, TV and mirror" },
         { src: deluxeRoom8.url, alt: "Deluxe Family Room — three beds opening to the balcony" },
+        { src: familyWashroom1.url, alt: "Deluxe Family Room — attached washroom with geyser" },
+        { src: familyWashroom2.url, alt: "Deluxe Family Room — attached washroom" },
       ], // order here = order shown
       facilities: ["Air-conditioned"],
       occupancy: "Up to 4–5 guests",
