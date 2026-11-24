@@ -1,24 +1,19 @@
-# Cottage Screenshot Studio
+# Kaushik Cottage — Matheran
 
-Implement exactly the screenshot and nothing else
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a96ec6d2-64a9-4804-a245-c735fb436d92).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+Website for Kaushik Cottage, a homestay in Matheran, Maharashtra.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
+npm install
 npm run dev
 ```
+
+## Build & deploy
+
+```bash
+npm run build
+npx wrangler deploy
+```
+
+Site content (rooms, contacts, menu, reviews) lives in `src/content/site.ts`.
